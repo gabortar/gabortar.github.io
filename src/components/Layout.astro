@@ -6,16 +6,28 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
   hideFooter?: boolean;
 }
 
+const htmlLang = Astro.url.pathname === '/hu/' || Astro.url.pathname.startsWith('/hu/') ? 'hu' : 'en';
+const defaultDescriptions = {
+  en: 'Practical software, workflow automation, data tools, and AI-assisted systems for teams dealing with manual processes and disconnected tools.',
+  hu: 'Gyakorlati szoftveres megoldások, folyamatautomatizálás, adateszközök és AI-alapú rendszerek manuális vagy széteső folyamatokra.',
+};
+
 const {
-  title = 'Gabor Tar — Data & AI Automation Engineer',
-  description = 'Practical software, data pipelines, reporting automation, and AI-powered tools for real business problems.',
+  title = 'Gabor Tar | Software, Automation & AI',
+  description = defaultDescriptions[htmlLang],
+  ogTitle = title,
+  ogDescription = description,
+  ogImage = '/og-image.png',
   hideFooter = false,
 } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const htmlLang = Astro.url.pathname === '/hu/' || Astro.url.pathname.startsWith('/hu/') ? 'hu' : 'en';
+const ogImageURL = new URL(ogImage, Astro.site);
 ---
 
 <!doctype html>
@@ -26,11 +38,12 @@ const htmlLang = Astro.url.pathname === '/hu/' || Astro.url.pathname.startsWith(
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
     <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImageURL} />
     <meta property="og:site_name" content="Gabor Tar" />
     <meta name="twitter:card" content="summary" />
     <title>{title}</title>
