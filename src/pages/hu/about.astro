@@ -1,0 +1,47 @@
+---
+import Layout from '../../components/Layout.astro';
+
+const focusAreas = [
+  'Háttérrendszerek',
+  'Folyamatautomatizálás',
+  'Adateszközök',
+  'Gyakorlati AI',
+  'RAG és dokumentumkeresés',
+  'Robotikai monitorozás',
+];
+---
+
+<Layout title="Rólam — Gabor Tar" description="Gabor Tar, független technikai tanácsadó, aki gyakorlati szoftvereket épít a valós, rendezetlen folyamatokra.">
+  <header class="border-b border-line bg-white">
+    <div class="shell py-14 text-center md:py-18">
+      <h1 class="text-4xl font-bold tracking-[-0.035em] sm:text-5xl">Rólam</h1>
+    </div>
+  </header>
+
+  <article class="shell py-14 md:py-18">
+    <div class="mx-auto max-w-3xl">
+      <h2 class="text-center text-3xl font-bold leading-tight tracking-[-0.035em] text-ink sm:text-4xl">
+        Praktikus szoftvereket építek valós, <span class="messy-word" aria-label="kaotikus"><span aria-hidden="true">k</span><span aria-hidden="true">a</span><span aria-hidden="true">o</span><span aria-hidden="true">t</span><span aria-hidden="true">i</span></span>kus folyamatokra.
+      </h2>
+
+      <div class="mt-8 space-y-5 text-lg leading-8 text-muted">
+        <p>Belső rendszerek, automatizációk, adatfolyamok, gyakorlati AI és robotikai szoftverek területén dolgozom. A közös pont egyszerű: szeretem az átláthatatlan, manuális vagy sérülékeny folyamatokat könnyebben futtatható és fenntartható rendszerekké alakítani.</p>
+        <p>Általában a meglévő folyamat feltérképezésével kezdek, megtalálom a szűk keresztmetszetet, majd először egy kis működő verziót építek, mielőtt felesleges funkciókra fokuszálnánk.</p>
+        <p>Korábban adat- és robotikai mérnökként dolgoztam. Ez a kombináció formálta a gondolkodásmódomat: a rendszereknek átláthatónak, praktikusnak és valós korlátok köré építettnek kell lenniük, nem pedig ideális diagramok mentén létezniük.</p>
+      </div>
+
+      <section class="mt-10 border-t border-line pt-8" aria-labelledby="focus-heading">
+        <h3 id="focus-heading" class="text-xl font-bold text-ink">Fókuszterületek</h3>
+        <ul class="mt-5 grid gap-3 text-base text-muted sm:grid-cols-2">
+          {focusAreas.map((area) => (
+            <li class="rounded-md border border-line bg-white px-3 py-2 font-medium">{area}</li>
+          ))}
+        </ul>
+      </section>
+
+      <div class="mt-9 text-center">
+        <a href="mailto:gabor@gabortar.eu" class="inline-block rounded-lg bg-accent px-5 py-3.5 font-semibold text-white transition-colors hover:bg-accent-dark">Írj nekem!</a>
+      </div>
+    </div>
+  </article>
+</Layout>

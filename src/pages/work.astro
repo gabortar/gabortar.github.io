@@ -1,0 +1,19 @@
+---
+import Layout from '../components/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { projects } from '../data/content';
+---
+
+<Layout title="Selected work — Gabor Tar" description="Selected software, data automation, robotics, and AI projects by Gabor Tar.">
+  <header class="border-b border-line bg-white">
+    <div class="shell py-14 text-center md:py-18">
+      <h1 class="text-4xl font-bold tracking-[-0.035em] sm:text-5xl">Selected work</h1>
+      <p class="mx-auto mt-4 max-w-2xl text-xl leading-8 text-muted">Production systems, practical tools, and open-source experiments.</p>
+    </div>
+  </header>
+  <section class="section-space shell" aria-label="Work list">
+    <div class="grid gap-4 md:grid-cols-2">
+      {projects.map((project, index) => <ProjectCard project={project} index={index} />)}
+    </div>
+  </section>
+</Layout>

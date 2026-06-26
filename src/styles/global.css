@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #20241f;
+  --color-panel: #f4f1e9;
+  --color-line: #d9d5c9;
+  --color-paper: #fbf9f3;
+  --color-muted: #5e655d;
+  --color-accent: #52624b;
+  --color-accent-dark: #354031;
+  --color-accent-soft: #e4eadf;
+  --color-warm: #bd7b38;
+  --font-sans: "Inter", "Aptos", "Segoe UI", Arial, sans-serif;
+}
+
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+  background: var(--color-paper);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  min-height: 100vh;
+  min-width: 320px;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  flex: 1;
+}
+
+::selection {
+  background: #ccd6c6;
+  color: var(--color-accent-dark);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+a {
+  text-underline-offset: 0.25em;
+}
+
+.messy-word {
+  display: inline-flex;
+  gap: 0.015em;
+  white-space: nowrap;
+}
+
+.messy-word span {
+  display: inline-block;
+  opacity: 1;
+  transform: translate(var(--messy-x), var(--messy-y)) rotate(var(--messy-r));
+}
+
+.messy-word span:nth-child(1) {
+  --messy-x: -2px;
+  --messy-y: 2px;
+  --messy-r: -1.4deg;
+}
+
+.messy-word span:nth-child(2) {
+  --messy-x: 1px;
+  --messy-y: -2px;
+  --messy-r: 1.1deg;
+}
+
+.messy-word span:nth-child(3) {
+  --messy-x: -1px;
+  --messy-y: -2px;
+  --messy-r: 1.3deg;
+}
+
+.messy-word span:nth-child(4) {
+  --messy-x: 2px;
+  --messy-y: 2px;
+  --messy-r: -1.2deg;
+}
+
+.messy-word span:nth-child(5) {
+  --messy-x: 1px;
+  --messy-y: -1px;
+  --messy-r: 1.5deg;
+}
+
+.shell {
+  width: min(100% - 2rem, 72rem);
+  margin-inline: auto;
+}
+
+.section-space {
+  padding-block: 4rem;
+}
+
+@media (min-width: 768px) {
+  .shell { width: min(100% - 4rem, 72rem); }
+  .section-space { padding-block: 5.5rem; }
+}

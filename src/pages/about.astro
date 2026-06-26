@@ -1,0 +1,47 @@
+---
+import Layout from '../components/Layout.astro';
+
+const focusAreas = [
+  'Backend systems',
+  'Workflow automation',
+  'Data tooling',
+  'Applied AI',
+  'RAG and document search',
+  'Robotics observability',
+];
+---
+
+<Layout title="About — Gabor Tar" description="About Gabor Tar, an independent technical consultant building practical software for messy real-world workflows.">
+  <header class="border-b border-line bg-white">
+    <div class="shell py-14 text-center md:py-18">
+      <h1 class="text-4xl font-bold tracking-[-0.035em] sm:text-5xl">About</h1>
+    </div>
+  </header>
+
+  <article class="shell py-14 md:py-18">
+    <div class="mx-auto max-w-3xl">
+      <h2 class="text-center text-3xl font-bold leading-tight tracking-[-0.035em] text-ink sm:text-4xl">
+        I build practical software for <span class="messy-word" aria-label="messy"><span aria-hidden="true">m</span><span aria-hidden="true">e</span><span aria-hidden="true">s</span><span aria-hidden="true">s</span><span aria-hidden="true">y</span></span> real-world workflows.
+      </h2>
+
+      <div class="mt-8 space-y-5 text-lg leading-8 text-muted">
+        <p>I work across backend systems, automation, data pipelines, applied AI, and robotics tooling. The common thread is simple: I like turning unclear, manual, or fragile processes into systems that are easier to run and maintain.</p>
+        <p>I usually start by mapping the existing workflow, finding the bottleneck, and building a small working version before making anything bigger than it needs to be.</p>
+        <p>Previously, I worked across data engineering and robotics engineering. That mix shaped how I think: systems should be observable, practical, and built around real constraints, not ideal diagrams.</p>
+      </div>
+
+      <section class="mt-10 border-t border-line pt-8" aria-labelledby="focus-heading">
+        <h3 id="focus-heading" class="text-xl font-bold text-ink">Focus areas</h3>
+        <ul class="mt-5 grid gap-3 text-base text-muted sm:grid-cols-2">
+          {focusAreas.map((area) => (
+            <li class="rounded-md border border-line bg-white px-3 py-2 font-medium">{area}</li>
+          ))}
+        </ul>
+      </section>
+
+      <div class="mt-9 text-center">
+        <a href="mailto:gabor@gabortar.eu" class="inline-block rounded-lg bg-accent px-5 py-3.5 font-semibold text-white transition-colors hover:bg-accent-dark">Let’s talk</a>
+      </div>
+    </div>
+  </article>
+</Layout>

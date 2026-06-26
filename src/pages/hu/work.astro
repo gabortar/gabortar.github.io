@@ -1,0 +1,65 @@
+---
+import Layout from '../../components/Layout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+
+const projectsHu = [
+  {
+    title: 'Riportautomatizálási eszköztár',
+    description: 'Újrafelhasználható folyamatok ismétlődő riportokhoz, adatkiíratásokhoz és rendszeres ellenőrzésekhez.',
+    demonstrates: [
+      'Manuális riportálás kiváltása automatizált folyamatokkal',
+      'Adatvalidáció és ütemezett ellenőrzések',
+      'Gyakorlati automatizáció rendezetlen üzleti adatok köré',
+    ],
+    tags: ['Python', 'SQL', 'Automation'],
+    status: 'Toolkit',
+  },
+  {
+    title: 'Dokumentumkereső és kérdés-válaszoló asszisztens',
+    description: 'Dokumentumkereső és kérdés-válaszoló prototípus, ahol a válaszok hiteles forrásokra és visszakereshető információkra épülnek.',
+    demonstrates: [
+      'Dokumentumok intelligens feldolgozása és visszakeresése',
+      'Forrásmegjelöléssel alátámasztott válaszok',
+      'AI funkciók olyan környezetben, ahol a nyomonkövethetőség kritikus',
+    ],
+    tags: ['RAG', 'LLM', 'Search'],
+    status: 'Prototype',
+  },
+  {
+    title: 'JetTrace',
+    description: 'ROS2 obszervabilitási eszköz robotikai rendszerekhez: hálózati struktúra feltérképezése, adatfolyamok egészségvizsgálata és futás közbeni átláthatóság',
+    demonstrates: [
+      'Backend tooling elosztott rendszerekhez',
+      'Élő rendszerállapotok átlátható követése',
+      'Robotikai infrastruktúra monitorozása',
+    ],
+    tags: ['ROS2', 'Observability', 'Robotics'],
+    status: 'In development',
+  },
+  {
+    title: 'Local LLM Lab',
+    description: 'Nyílt forráskódú modellek tesztelése szigorú hardveres korlátok mellett, költséghatékony és biztonságos AI infrastruktúra tervezéséhez, drága felhő-API-k nélkül.',
+    demonstrates: [
+      'Helyi modellfuttatás konfigurálása',
+      'Modellek és futtatókörnyezetek összehasonlítása',
+      'Hardver-tudatos AI kísérletezés',
+    ],
+    tags: ['Python', 'Open models', 'GPU'],
+    status: 'Experiments',
+  },
+];
+---
+
+<Layout title="Kiemelet munkáim — Gabor Tar" description="Gabor Tar szoftveres, adatautomatizálási, robotikai és AI-projektjei.">
+  <header class="border-b border-line bg-white">
+    <div class="shell py-14 text-center md:py-18">
+      <h1 class="text-4xl font-bold tracking-[-0.035em] sm:text-5xl">Kiemelet munkáim</h1>
+      <p class="mx-auto mt-4 max-w-2xl text-xl leading-8 text-muted">Szoftveres megoldások, automatizációk és technikai kísérletek.</p>
+    </div>
+  </header>
+  <section class="section-space shell" aria-label="Work list">
+    <div class="grid gap-4 md:grid-cols-2">
+      {projectsHu.map((project, index) => <ProjectCard project={project} index={index} />)}
+    </div>
+  </section>
+</Layout>

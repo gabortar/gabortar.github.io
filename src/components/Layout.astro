@@ -1,0 +1,44 @@
+---
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  hideFooter?: boolean;
+}
+
+const {
+  title = 'Gabor Tar — Data & AI Automation Engineer',
+  description = 'Practical software, data pipelines, reporting automation, and AI-powered tools for real business problems.',
+  hideFooter = false,
+} = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const htmlLang = Astro.url.pathname === '/hu/' || Astro.url.pathname.startsWith('/hu/') ? 'hu' : 'en';
+---
+
+<!doctype html>
+<html lang={htmlLang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:site_name" content="Gabor Tar" />
+    <meta name="twitter:card" content="summary" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a href="#main-content" class="fixed left-4 top-4 z-50 -translate-y-24 bg-accent px-4 py-2 font-semibold text-ink focus:translate-y-0">Skip to content</a>
+    <Header />
+    <main id="main-content"><slot /></main>
+    {!hideFooter && <Footer />}
+  </body>
+</html>
