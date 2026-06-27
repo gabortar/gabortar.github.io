@@ -28,6 +28,16 @@ const {
 } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(ogImage, Astro.site);
+const normalizedPath = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
+const englishPath = normalizedPath === '/hu/' ? '/' : normalizedPath.startsWith('/hu/') ? normalizedPath.replace(/^\/hu/, '') || '/' : normalizedPath;
+const localizedPaths = new Set(['/', '/about/', '/work/']);
+const alternateURLs = localizedPaths.has(englishPath)
+  ? {
+      en: new URL(englishPath, Astro.site),
+      hu: new URL(`/hu${englishPath === '/' ? '/' : englishPath}`, Astro.site),
+      xDefault: new URL(englishPath, Astro.site),
+    }
+  : null;
 ---
 
 <!doctype html>
@@ -38,6 +48,13 @@ const ogImageURL = new URL(ogImage, Astro.site);
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
+    {alternateURLs && (
+      <>
+        <link rel="alternate" hreflang="en" href={alternateURLs.en} />
+        <link rel="alternate" hreflang="hu" href={alternateURLs.hu} />
+        <link rel="alternate" hreflang="x-default" href={alternateURLs.xDefault} />
+      </>
+    )}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={ogTitle} />

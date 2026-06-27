@@ -44,6 +44,6 @@ The static production output is generated in `dist/`.
 3. Under **Build and deployment**, select **GitHub Actions** as the source.
 4. Push to `main` or run the **Deploy to GitHub Pages** workflow manually.
 
-The included workflow builds the site and deploys the generated static files. `astro.config.ts` is configured for `https://gabortar.github.io`. For a project repository instead of a user site, update `site` and add `base: '/repository-name'` in that file.
+The included workflow builds the site and deploys the generated static files. `astro.config.ts` is configured for `https://gabortar.eu`. For a project repository instead of a user site, update `site` and add `base: '/repository-name'` in that file.
 
 Before publishing, replace the placeholder GitHub and LinkedIn URLs in `src/components/Footer.astro` and `src/pages/index.astro`.
